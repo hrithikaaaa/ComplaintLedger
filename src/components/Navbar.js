@@ -5,34 +5,54 @@ import "./Navbar.css";
 
 function Navbar() {
   const location = useLocation();
+
   const isActive = (path) => location.pathname === path;
 
   return (
     <nav className="navbar-custom">
-      {/* Brand */}
+      
+      {/* Left: Brand */}
       <div className="navbar-brand-custom">
         <div className="brand-icon">⚖</div>
         <span>Complaint System</span>
       </div>
 
-      {/* Nav Links */}
+      {/* Center: Navigation Links */}
       <div className="nav-links">
-        <Link to="/" className={`nav-link-custom ${isActive("/") ? "active" : ""}`}>
+        <Link
+          to="/"
+          className={`nav-link-custom ${isActive("/") ? "active" : ""}`}
+        >
           Home
         </Link>
-        <Link to="/submit" className={`nav-link-custom ${isActive("/submit") ? "active" : ""}`}>
+
+        <Link
+          to="/submit"
+          className={`nav-link-custom ${isActive("/submit") ? "active" : ""}`}
+        >
           Submit
         </Link>
-        <Link to="/track" className={`nav-link-custom ${isActive("/track") ? "active" : ""}`}>
+
+        <Link
+          to="/track"
+          className={`nav-link-custom ${isActive("/track") ? "active" : ""}`}
+        >
           Track
         </Link>
-        <Link to="/dashboard" className={`nav-link-custom ${isActive("/dashboard") ? "active" : ""}`}>
+
+        <Link
+          to="/dashboard"
+          className={`nav-link-custom ${isActive("/dashboard") ? "active" : ""}`}
+        >
           Dashboard
         </Link>
       </div>
 
-      {/* Wallet */}
-      <WalletConnect />
+      {/* Right: Wallet */}
+      <div className="navbar-wallet">
+        <WalletConnect />
+      </div>
+
     </nav>
   );
 }
